@@ -156,7 +156,7 @@ _quarto:
           - "See Figure A\\.1 for appendix sub-figures"
           - "See Warning A\\.1 for the appendix warning"
           - "See Tip A\\.1 for the appendix tip"
-          - "see Warn[\\s\\S]*1\\.1 for\\s+the tea warning from Chapter"
+          - "see Warn[\\s\\S]*1\\.1 for\\s+the tea warning from Chapter I"
           # Dinosaurs with chapter-based numbering
           - "Dinosaur 1\\.1: This is the first dinosaur"
           - "Dinosaur 1\\.2: This is the second di"
@@ -165,10 +165,10 @@ _quarto:
           - "Dinosaur A\\.1: This dinosaur in the"
           - "See Dinosaur 1\\.1\\s+to self"
           - "See\\s+Dinosaur 2\\.1 to self"
-          - "see\\s+Dinosaur 1\\.1\\s+and Dinosaur 1\\.2 from Chapter"
-          - "see Dinosaur 1\\.1 from Chapter\\s+1 and\\s+Dinosaur 2\\.1"
+          - "see\\s+Dinosaur 1\\.1\\s+and Dinosaur 1\\.2 from Chapter I"
+          - "see Dinosaur 1\\.1 from Chapter\\s+I\\s+and\\s+Dinosaur 2\\.1 from\\s+Chapter\\s+II"
           - "See Dinosaur A\\.1 for the appendix dinosaur"
-          - "see Dinosaur 1\\.1 from Chapter\\s+1"
+          - "see Dinosaur 1\\.1 from Chapter\\s+I"
           # Appendix B content
           - "Figure B\\.1: A panel of sub-figures\\s+in Appendix B"
           - "Figure B\\.1a and\\s+Figure B\\.1b\\s+individually"
@@ -190,8 +190,8 @@ _quarto:
           - "Newton.s second law \\(Equation \\(1\\.2\\)\\)"
           - "Use Equation \\(2\\.1\\) to solve quadratic equations"
           - "See Equation \\(A\\.1\\) for right triangles"
-          - "Recall Equation \\(1\\.1\\) from Chapter 1\\s+and Equa[\\s\\S]*\\(1\\.2\\)"
-          - "Recall Equation \\(1\\.1\\) from Chapter 1\\s+and Equa[\\s\\S]*\\(2\\.1\\)"
+          - "Recall Equation \\(1\\.1\\) from Chapter I\\s+and Equa[\\s\\S]*\\(1\\.2\\)"
+          - "Recall Equation \\(1\\.1\\) from Chapter I\\s+and Equa[\\s\\S]*\\(2\\.1\\) from\\s+Chapter II"
           # Theorems - min-book with custom quarto-chapter counter gives "chapter.theorem" (1.1)
           - "Theorem 1\\.1.*Pythagorean"
           - "Lemma 1\\.1.*Triangle Inequality"
@@ -201,7 +201,7 @@ _quarto:
           - "See Lemma 1\\.1 for the inequality"
           - "See Theorem 2\\.1"
           - "See Definition 2\\.1 for the definition"
-          - "Recall Theorem 1\\.1\\s+and\\s+Lemma 1\\.1 from Chapter 1"
+          - "Recall Theorem 1\\.1\\s+and\\s+Lemma 1\\.1 from Chapter I"
           # Appendix theorem - currently numbered as 3.1, ideally would be A.1
           - "Theorem 3\\.1.*Example Appendix"
           - "See Theorem 3\\.1 for the appendix theorem"
@@ -214,8 +214,8 @@ _quarto:
           - "Listing 1\\.2.*uses recursion"
           - "See Listing 2\\.1 for an efficient sorting algorithm"
           - "See Listing A\\.1 for an appendix code example"
-          - "See Listing 1\\.1 and Listing 1\\.2 from\\s+Chapter 1"
-          - "See Listing 1\\.1 from Chapter 1 and\\s+Listing 2\\.1 from\\s+Chapter 2"
+          - "See Listing 1\\.1 and Listing 1\\.2 from\\s+Chapter I"
+          - "See Listing 1\\.1 from Chapter I and\\s+Listing 2\\.1 from\\s+Chapter II"
 ---
 
 # Preface {.unnumbered}

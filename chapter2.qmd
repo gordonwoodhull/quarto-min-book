@@ -64,7 +64,7 @@ This section tests that custom cross-reference counters reset at chapter boundar
 This dinosaur demonstrates clever pack hunting behavior. See @dino-raptor to self-reference.
 :::
 
-We can also reference dinosaurs from the previous chapter: see @dino-steg and @dino-trex from Chapter 1.
+We can also reference dinosaurs from the previous chapter: see @dino-steg and @dino-trex from @sec-intro.
 
 ## Section 2.6 - Equations
 
@@ -76,7 +76,7 @@ $$ {#eq-quadratic}
 
 Use @eq-quadratic to solve quadratic equations. This should be Equation 2.1.
 
-Cross-chapter reference: Recall @eq-einstein from Chapter 1 and @eq-newton.
+Cross-chapter reference: Recall @eq-einstein from @sec-intro and @eq-newton.
 
 ## Section 2.7 - More Theorems
 
@@ -85,7 +85,7 @@ Cross-chapter reference: Recall @eq-einstein from Chapter 1 and @eq-newton.
 If $F$ is an antiderivative of $f$ on $[a,b]$, then: $\int_a^b f(x)\,dx = F(b) - F(a)$
 :::
 
-See @thm-calculus. This should be Theorem 2.1. Recall @thm-pythagorean and @lem-triangle from Chapter 1.
+See @thm-calculus. This should be Theorem 2.1. Recall @thm-pythagorean and @lem-triangle from @sec-intro.
 
 ::: {#def-continuous}
 ## Continuous Function
@@ -109,4 +109,4 @@ def quicksort(arr):
 
 See @lst-quicksort for an efficient sorting algorithm. This should be Listing 2.1.
 
-Cross-chapter references: See @lst-hello and @lst-fibonacci from Chapter 1.
+Cross-chapter references: See @lst-hello and @lst-fibonacci from @sec-intro.

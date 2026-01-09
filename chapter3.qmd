@@ -31,7 +31,7 @@ The answer to the ultimate question of life, the universe, and everything is 42.
 This flying reptile soared through Mesozoic skies. See @dino-ptero to self-reference.
 :::
 
-Cross-chapter dinosaur references: see @dino-steg from Chapter 1 and @dino-raptor from Chapter 2.
+Cross-chapter dinosaur references: see @dino-steg from @sec-intro and @dino-raptor from @sec-methods.
 
 ## Forward references to appendices
 

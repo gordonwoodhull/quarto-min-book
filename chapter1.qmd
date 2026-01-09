@@ -38,13 +38,13 @@ This section tests custom cross-reference types using the user-defined "Dinosaur
 ::: {#dino-steg}
 **Stegosaurus**
 
-This is the first dinosaur in Chapter 1, a herbivore with distinctive plates. See @dino-steg to self-reference.
+This is the first dinosaur in @sec-intro, a herbivore with distinctive plates. See @dino-steg to self-reference.
 :::
 
 ::: {#dino-trex}
 **Tyrannosaurus Rex**
 
-This is the second dinosaur in Chapter 1, the king of predators. See @dino-trex to self-reference, or @dino-steg for the first dinosaur.
+This is the second dinosaur in @sec-intro, the king of predators. See @dino-trex to self-reference, or @dino-steg for the first dinosaur.
 :::
 
 ## Section 1.5 - Equations

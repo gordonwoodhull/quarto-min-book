@@ -39,4 +39,4 @@ This dinosaur in Appendix B should be numbered Dinosaur B.1. See @dino-appendix-
 
 We can reference content from Appendix A: see @fig-appendix-panel for Appendix A's figure panel.
 
-We can also reference content from main chapters: see @dino-trex from Chapter 1 and @wrn-tea for the tea warning.
+We can also reference content from main chapters: see @dino-trex from @sec-intro and @wrn-tea for the tea warning.

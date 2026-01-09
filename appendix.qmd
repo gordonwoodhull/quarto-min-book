@@ -41,7 +41,7 @@ This is a warning callout in the appendix. It should be numbered Warning A.1, no
 This is a tip callout in the appendix. It should be numbered Tip A.1. See @tip-appendix to reference this appendix tip.
 :::
 
-We can also reference callouts from the main chapters: see @wrn-tea for the tea warning from Chapter 1.
+We can also reference callouts from the main chapters: see @wrn-tea for the tea warning from @sec-intro.
 
 ## Appendix Custom Crossref Dinosaurs
 
@@ -53,7 +53,7 @@ This section tests custom cross-reference numbering in appendices.
 This dinosaur in the appendix should be numbered Dinosaur A.1, not Dinosaur 1.1 or Dinosaur 4.1. See @dino-appendix to self-reference.
 :::
 
-We can reference dinosaurs from main chapters: see @dino-steg from Chapter 1.
+We can reference dinosaurs from main chapters: see @dino-steg from @sec-intro.
 
 ## Appendix Equations
 
@@ -65,7 +65,7 @@ $$ {#eq-pythagorean}
 
 See @eq-pythagorean for right triangles. This should be Equation A.1.
 
-Cross-chapter reference: Recall @eq-einstein from Chapter 1 and @eq-quadratic from Chapter 2.
+Cross-chapter reference: Recall @eq-einstein from @sec-intro and @eq-quadratic from @sec-methods.
 
 ## Appendix Theorems
 
@@ -74,7 +74,7 @@ Cross-chapter reference: Recall @eq-einstein from Chapter 1 and @eq-quadratic fr
 This theorem demonstrates appendix numbering. It should ideally be Theorem A.1.
 :::
 
-See @thm-appendix for the appendix theorem. Reference @thm-pythagorean from Chapter 1 and @thm-calculus from Chapter 2.
+See @thm-appendix for the appendix theorem. Reference @thm-pythagorean from @sec-intro and @thm-calculus from @sec-methods.
 
 ## Appendix Listings
 
@@ -87,4 +87,4 @@ def appendix_function():
 
 See @lst-appendix-example for an appendix code example. This should be Listing A.1.
 
-Cross-chapter references: See @lst-hello from Chapter 1 and @lst-quicksort from Chapter 2.
+Cross-chapter references: See @lst-hello from @sec-intro and @lst-quicksort from @sec-methods.
