@@ -14,6 +14,30 @@
 local in_appendix_mode = false
 local appendix_chapter_count = 0
 
+-- Build counter reset commands dynamically from quarto.doc.crossref.categories
+local function build_counter_resets()
+  local lines = pandoc.List({})
+
+  -- Iterate over all crossref categories to find figure kinds
+  for _, category in ipairs(quarto.doc.crossref.categories.all) do
+    if category.kind == "float" then
+      -- Floats use "quarto-float-" .. ref_type (e.g., quarto-float-fig)
+      lines:insert('counter(figure.where(kind: "quarto-float-' .. category.ref_type .. '")).update(0)')
+    elseif category.kind == "Block" then
+      -- Block kinds (callouts) use "quarto-callout-" .. name (e.g., quarto-callout-Warning)
+      local callout_ref_types = {nte=true, wrn=true, cau=true, tip=true, imp=true}
+      if callout_ref_types[category.ref_type] then
+        lines:insert('counter(figure.where(kind: "quarto-callout-' .. category.name .. '")).update(0)')
+      end
+    end
+  end
+
+  -- Always reset math equation counter
+  lines:insert('counter(math.equation).update(0)')
+
+  return "#" .. table.concat(lines, "\n#")
+end
+
 local function is_typst_book()
   local file_state = quarto.doc.file_metadata()
   return quarto.doc.is_format("typst") and
@@ -75,19 +99,12 @@ return {
       -- Step the appendix chapter counter BEFORE the heading
       local counterStep = pandoc.RawBlock('typst', '#quarto-appendix-chapter-counter.step()')
 
-      -- Reset figure/callout/equation counters for this appendix chapter
-      -- (the show rule might not fire inside appendices ambient due to heading offset)
-      local counterResets = pandoc.RawBlock('typst', [[
-#counter(figure.where(kind: "quarto-float-fig")).update(0)
-#counter(figure.where(kind: "quarto-float-tbl")).update(0)
-#counter(figure.where(kind: "quarto-float-lst")).update(0)
-#counter(figure.where(kind: "quarto-callout-Note")).update(0)
-#counter(figure.where(kind: "quarto-callout-Warning")).update(0)
-#counter(figure.where(kind: "quarto-callout-Caution")).update(0)
-#counter(figure.where(kind: "quarto-callout-Tip")).update(0)
-#counter(figure.where(kind: "quarto-callout-Important")).update(0)
-#counter(figure.where(kind: "quarto-float-dino")).update(0)
-#counter(math.equation).update(0)]])
+      -- Reset figure/callout/equation counters for this appendix chapter.
+      -- This is needed because the heading level shift (H1→H2) happens here in Lua,
+      -- which means the show rule in typst-show.typ fires with wrong timing.
+      -- The counter reset must happen BEFORE content, but show rules fire DURING display.
+      -- Built dynamically from quarto.doc.crossref.categories (includes custom crossref types)
+      local counterResets = pandoc.RawBlock('typst', build_counter_resets())
 
       -- Appendix chapters become H2 inside the appendices ambient
       el.level = el.level + 1
