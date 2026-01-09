@@ -122,7 +122,7 @@ _quarto:
           - "Table 2\\.1: Sample data table"
           - "Figure 2\\.1: A panel with two sub-figures"
           - "See Figure 1\\.1 for an example figure"
-          - "See Figure 1\\.2 for an embedded note"
+          - "See Figure 1\\.2 for an embedded"
           - "See Table 2\\.1 for sample data"
           - "Refer back to Figure 1\\.1 and Table 2\\.1"
           # Min-book uses Roman numerals for chapters - Chapter I, Chapter II
