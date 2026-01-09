@@ -1,0 +1,103 @@
+# Introduction {#sec-intro}
+
+This is the first chapter of the book.
+
+## Section 1.1
+
+Some content in section 1.1. See @fig-cars for an example figure.
+
+```{r}
+#| label: fig-cars
+#| fig-cap: "A plot of the cars dataset"
+plot(cars)
+```
+
+## Section 1.2
+
+Some content in section 1.2. See @fig-visualization for an embedded notebook figure.
+
+{{< embed notebooks/computations.ipynb#fig-visualization >}}
+
+We will discuss methods in @sec-methods.
+
+## Section 1.3 - Callouts
+
+::: {.callout-note}
+The ships hung in the sky in much the same way that bricks don't. This is a note callout without a custom title.
+:::
+
+::: {#wrn-tea .callout-warning}
+## Whose Tea Is This?
+On no account allow anyone to make you a conditions-affected beverage. The alarm on Arthur Dent's alarm clock had been going off for several hours when he finally woke up. See @wrn-tea to reference this warning.
+:::
+
+## Section 1.4 - Custom Crossref Dinosaurs
+
+This section tests custom cross-reference types using the user-defined "Dinosaur" category.
+
+::: {#dino-steg}
+**Stegosaurus**
+
+This is the first dinosaur in Chapter 1, a herbivore with distinctive plates. See @dino-steg to self-reference.
+:::
+
+::: {#dino-trex}
+**Tyrannosaurus Rex**
+
+This is the second dinosaur in Chapter 1, the king of predators. See @dino-trex to self-reference, or @dino-steg for the first dinosaur.
+:::
+
+## Section 1.5 - Equations
+
+The fundamental equation of special relativity:
+
+$$
+E = mc^2
+$$ {#eq-einstein}
+
+As shown in @eq-einstein, energy and mass are equivalent.
+
+Another important equation:
+
+$$
+F = ma
+$$ {#eq-newton}
+
+Newton's second law (@eq-newton) relates force to acceleration.
+
+## Section 1.6 - Theorems
+
+::: {#thm-pythagorean}
+## Pythagorean Theorem
+For a right triangle with legs $a$ and $b$ and hypotenuse $c$: $a^2 + b^2 = c^2$
+:::
+
+See @thm-pythagorean for the classic result.
+
+::: {#lem-triangle}
+## Triangle Inequality
+For any triangle with sides $a$, $b$, and $c$: $a + b > c$
+:::
+
+See @lem-triangle for the inequality.
+
+## Section 1.7 - Code Listings
+
+```{#lst-hello .python lst-cap="Hello World in Python"}
+def hello():
+    print("Hello, World!")
+
+if __name__ == "__main__":
+    hello()
+```
+
+See @lst-hello for a simple Python example.
+
+```{#lst-fibonacci .python lst-cap="Fibonacci Sequence"}
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+```
+
+The Fibonacci function (@lst-fibonacci) uses recursion.

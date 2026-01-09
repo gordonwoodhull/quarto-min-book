@@ -1,0 +1,11 @@
+# Quarto output
+_book/
+/*.typ
+/*.pdf
+
+# Computed figure/output directories
+*_files/
+
+# Quarto cache
+/.quarto/
+**/*.quarto_ipynb
