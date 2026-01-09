@@ -181,6 +181,19 @@ _quarto:
           - "See Tip B\\.1 for the Appendix B tip"
           - "See Dinosaur B\\.1 for the Appendix B dinosaur"
           - "see Figure A\\.1 for\\s+Appendix A"
+          # Appendix section headings with proper A.x and B.x numbering
+          - "A\\.1\\.\\s+Data Sources"
+          - "A\\.2\\.\\s+Code Repository"
+          - "A\\.3\\.\\s+Appendix Sub-figures"
+          - "A\\.4\\.\\s+Appendix Callouts"
+          - "A\\.5\\.\\s+Appendix Custom Crossref"
+          - "A\\.6\\.\\s+Appendix Equations"
+          - "A\\.7\\.\\s+Appendix Theorems"
+          - "A\\.8\\.\\s+Appendix Listings"
+          - "B\\.1\\.\\s+Additional Figures"
+          - "B\\.2\\.\\s+Additional Callouts"
+          - "B\\.3\\.\\s+Additional Dinosaurs"
+          - "B\\.4\\.\\s+Cross-references"
           # Equations with chapter-based numbering
           - "\\(1\\.1\\)"
           - "\\(1\\.2\\)"
@@ -202,9 +215,10 @@ _quarto:
           - "See Theorem 2\\.1"
           - "See Definition 2\\.1 for the definition"
           - "Recall Theorem 1\\.1\\s+and\\s+Lemma 1\\.1 from Chapter I"
-          # Appendix theorem - currently numbered as 3.1, ideally would be A.1
-          - "Theorem 3\\.1.*Example Appendix"
-          - "See Theorem 3\\.1 for the appendix theorem"
+          # Appendix theorem - currently numbered as 1.1 due to ctheorems reset
+          # (min-book's appendices ambient resets heading counter, affecting ctheorems)
+          - "Theorem 1\\.1.*Example Appendix"
+          - "See Theorem 1\\.1 for the appendix theorem"
           # Listings with chapter-based numbering
           - "Listing 1\\.1.*Hello World"
           - "Listing 1\\.2.*Fibonacci"

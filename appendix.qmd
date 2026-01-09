@@ -71,7 +71,7 @@ Cross-chapter reference: Recall @eq-einstein from @sec-intro and @eq-quadratic f
 
 ::: {#thm-appendix}
 ## Example Appendix Theorem
-This theorem demonstrates appendix numbering. It should ideally be Theorem A.1.
+This theorem demonstrates appendix numbering. Currently shows as Theorem 1.1 due to ctheorems counter reset.
 :::
 
 See @thm-appendix for the appendix theorem. Reference @thm-pythagorean from @sec-intro and @thm-calculus from @sec-methods.

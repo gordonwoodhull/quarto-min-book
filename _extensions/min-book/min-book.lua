@@ -13,6 +13,7 @@
 -- Track whether we've entered appendix mode (persists across the document)
 local in_appendix_mode = false
 local appendix_chapter_count = 0
+local main_chapter_count = 0
 
 -- Build counter reset commands dynamically from quarto.doc.crossref.categories
 local function build_counter_resets()
@@ -106,12 +107,44 @@ return {
       -- Built dynamically from quarto.doc.crossref.categories (includes custom crossref types)
       local counterResets = pandoc.RawBlock('typst', build_counter_resets())
 
-      -- Appendix chapters become H2 inside the appendices ambient
-      el.level = el.level + 1
-      return {counterStep, counterResets, el}
+      -- Inject appendix chapter number into ctheorems' thmcounters state.
+      -- This is needed because appendix chapters are level 1 (inside appendices ambient),
+      -- but the show rule in typst-show.typ only fires for level 2 headings.
+      -- We add the appendix number to the main chapter count so theorems continue
+      -- numbering from main chapters (e.g., Chapter 1, 2 → Appendix A = 3, B = 4).
+      -- main_chapter_count is tracked in Lua since min-book resets heading counter in appendices.
+      --
+      -- KNOWN ISSUE: This injection doesn't fully work because min-book's appendices
+      -- ambient resets counter(heading) to 0, and ctheorems reads the heading counter
+      -- at theorem render time (after the reset). The result is that appendix theorems
+      -- show "Theorem 1.1" instead of the expected "Theorem 3.1" or "Theorem A.1".
+      -- A fix would require either patching ctheorems or using a different approach.
+      local chapter_num = main_chapter_count + appendix_chapter_count
+      local thmCounterUpdate = pandoc.RawBlock('typst', string.format([[#thmcounters.update(s => {
+  let counters = s.at("counters")
+  counters.insert("quarto-chapter", (%d,))
+  (..s, "counters": counters)
+})]], chapter_num))
+
+      -- DON'T shift appendix chapters - min-book's appendices ambient uses offset:1
+      -- which handles the level shift internally. Level 1 → numbered as level 2.
+      return {counterStep, counterResets, thmCounterUpdate, el}
     end
 
-    -- All other headings: shift down by 1 level
+    -- Inside appendices ambient: don't shift headings
+    -- min-book's appendices ambient uses set heading(offset: 1), so:
+    -- - Level 1 headings are numbered as level 2 (appendix chapters: A., B., etc.)
+    -- - Level 2 headings are numbered as level 3 (sections: A.1., A.2., etc.)
+    if in_appendix_mode then
+      return el
+    end
+
+    -- Track main body chapters for theorem numbering in appendices
+    if el.level == 1 and bookItemType == "chapter" then
+      main_chapter_count = main_chapter_count + 1
+    end
+
+    -- All other headings (main body): shift down by 1 level
     -- H1 chapters become H2, H2 sections become H3, etc.
     el.level = el.level + 1
     return el
