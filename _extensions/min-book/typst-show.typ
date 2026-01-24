@@ -7,8 +7,12 @@
 // Min-book structure: H1 = Parts, H2 = Chapters
 // The filter shifts Quarto's headings to match this structure
 #show: book.with(
-  title: "Book Title",
-  authors: "Author",
+$if(title)$
+  title: [$title$],
+$endif$
+$if(by-author)$
+  authors: "$for(by-author)$$it.name.literal$$sep$, $endfor$",
+$endif$
   cover: none,
   titlepage: none,
   toc: false,
