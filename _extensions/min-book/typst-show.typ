@@ -1,5 +1,5 @@
 // Import min-book and its appendices ambient
-#import "@local/min-book:1.3.0": book, appendices
+#import "@preview/min-book:1.3.0": book, appendices
 
 // Min-book structure: H1 = Parts, H2 = Chapters
 // The filter shifts Quarto's headings to match this structure

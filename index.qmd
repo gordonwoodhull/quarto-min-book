@@ -116,7 +116,7 @@ _quarto:
           - "#ref\\(<lst-appendix-example>"
           - 'kind: "quarto-float-lst"'
           # Min-book-specific import and show rules
-          - '#import "@local/min-book:1\.3\.0": book, appendices'
+          - '#import "@preview/min-book:1\.3\.0": book, appendices'
           - '#show: book\.with\('
       ensurePdfRegexMatches:
         - # matches array (first positional argument)
