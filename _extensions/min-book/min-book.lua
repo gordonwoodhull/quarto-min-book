@@ -80,10 +80,10 @@ local header_filter = {
       appendix_chapter_count = 0
 
       -- Update Quarto's appendix state for numbering
-      local stateUpdate = pandoc.RawBlock('typst', '#quarto-appendix-state.update(true)')
+      local stateUpdate = pandoc.RawBlock('typst', '#appendix-state.update(true)')
 
       -- Reset the appendix chapter counter
-      local counterReset = pandoc.RawBlock('typst', '#quarto-appendix-chapter-counter.update(0)')
+      local counterReset = pandoc.RawBlock('typst', '#appendix-chapter-counter.update(0)')
 
       -- Start min-book's appendices ambient
       local appendicesStart = pandoc.RawBlock('typst', '#show: appendices')
@@ -98,7 +98,7 @@ local header_filter = {
       appendix_chapter_count = appendix_chapter_count + 1
 
       -- Step the appendix chapter counter BEFORE the heading
-      local counterStep = pandoc.RawBlock('typst', '#quarto-appendix-chapter-counter.step()')
+      local counterStep = pandoc.RawBlock('typst', '#appendix-chapter-counter.step()')
 
       -- Reset figure/callout/equation counters for this appendix chapter.
       -- This is needed because the heading level shift (H1→H2) happens here in Lua,

@@ -18,7 +18,7 @@ $endif$
 // Quarto uses custom figure kinds (quarto-float-fig, quarto-float-tbl, etc.)
 // which don't match min-book's built-in numbering (kind:image, kind:table, kind:raw).
 // Apply chapter-based numbering globally to all figures.
-#set figure(numbering: quarto-figure-numbering)
+#set figure(numbering: figure-numbering)
 
 // Min-book uses level-2 headings for chapters (H1=Parts, H2=Chapters)
 // Reset figure/callout/equation counters at each chapter (level-2 heading)
