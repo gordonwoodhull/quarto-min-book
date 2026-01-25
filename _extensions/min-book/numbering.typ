@@ -54,16 +54,31 @@
   numbering(pattern, chapter, n-super, subfloat-idx)
 }
 
-// Min-book uses heading level 2 for chapters
-// ctheorems with base: "heading", base_level: 2 would give "part.chapter.theorem" (0.1.1)
-// because min-book uses unnumbered parts at level 1.
-//
-// SOLUTION: We inject a custom "quarto-chapter" counter into ctheorems' internal
-// thmcounters state. This counter contains just the chapter number (no part).
-// Then we use base: "quarto-chapter" so ctheorems uses our clean counter.
-//
-// The thmcounters state is updated at each chapter heading (see typst-show.typ).
-#let quarto-thmbox-args = (base: "quarto-chapter", base_level: 1)
+// Theorem configuration for theorion
+// Min-book uses heading level 2 for chapters (H1 = Parts, H2 = Chapters)
+// So we need inherited-levels: 2 to get proper chapter-based theorem numbering
+#let quarto-theorem-inherited-levels = 2
+
+// Appendix-aware theorem numbering
+#let quarto-theorem-numbering(loc) = {
+  if quarto-appendix-state.at(loc) { "A.1" } else { "1.1" }
+}
+
+// Theorem render function
+// Note: brand-color is not available at this point in template processing
+#let quarto-theorem-render(prefix: none, title: "", full-title: auto, body) = {
+  block(
+    width: 100%,
+    inset: (left: 1em),
+    stroke: (left: 2pt + black),
+  )[
+    #if full-title != "" and full-title != auto and full-title != none {
+      strong[#full-title]
+      linebreak()
+    }
+    #body
+  ]
+}
 
 // Chapter-based figure numbering for Quarto's custom float kinds
 // Min-book's built-in numbering uses kind:image/table/raw, but Quarto uses

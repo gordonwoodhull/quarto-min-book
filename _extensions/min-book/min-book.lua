@@ -107,28 +107,11 @@ local header_filter = {
       -- Built dynamically from quarto.doc.crossref.categories (includes custom crossref types)
       local counterResets = pandoc.RawBlock('typst', build_counter_resets())
 
-      -- Inject appendix chapter number into ctheorems' thmcounters state.
-      -- This is needed because appendix chapters are level 1 (inside appendices ambient),
-      -- but the show rule in typst-show.typ only fires for level 2 headings.
-      -- We add the appendix number to the main chapter count so theorems continue
-      -- numbering from main chapters (e.g., Chapter 1, 2 → Appendix A = 3, B = 4).
-      -- main_chapter_count is tracked in Lua since min-book resets heading counter in appendices.
-      --
-      -- KNOWN ISSUE: This injection doesn't fully work because min-book's appendices
-      -- ambient resets counter(heading) to 0, and ctheorems reads the heading counter
-      -- at theorem render time (after the reset). The result is that appendix theorems
-      -- show "Theorem 1.1" instead of the expected "Theorem 3.1" or "Theorem A.1".
-      -- A fix would require either patching ctheorems or using a different approach.
-      local chapter_num = main_chapter_count + appendix_chapter_count
-      local thmCounterUpdate = pandoc.RawBlock('typst', string.format([[#thmcounters.update(s => {
-  let counters = s.at("counters")
-  counters.insert("quarto-chapter", (%d,))
-  (..s, "counters": counters)
-})]], chapter_num))
-
       -- DON'T shift appendix chapters - min-book's appendices ambient uses offset:1
       -- which handles the level shift internally. Level 1 → numbered as level 2.
-      return {counterStep, counterResets, thmCounterUpdate, el}
+      -- Note: Theorem numbering is now handled by theorion with inherited-levels:2,
+      -- which properly inherits from heading level 2 (chapters). No ctheorems hack needed.
+      return {counterStep, counterResets, el}
     end
 
     -- Inside appendices ambient: don't shift headings
