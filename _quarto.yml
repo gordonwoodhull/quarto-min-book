@@ -29,3 +29,4 @@ crossref:
 format:
   min-book-typst:
     keep-typ: true
+    theorem-appearance: clouds
