@@ -6,8 +6,10 @@ contributes:
   formats:
     typst:
       template-partials:
+        - definitions.typ
         - numbering.typ
         - typst-show.typ
+        - page.typ
       filters:
         - path: min-book.lua
           at: post-quarto

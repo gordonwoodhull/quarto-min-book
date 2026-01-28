@@ -13,7 +13,43 @@ $endif$
   cover: none,
   titlepage: none,
   toc: false,
+$if(margin-geometry)$
+  // Pass book-aware margins that match marginalia's setup
+  // This ensures min-book and marginalia use consistent margin values
+  cfg: (
+    margin: (
+      inside: $margin-geometry.inner.far$ + $margin-geometry.inner.width$ + $margin-geometry.inner.separation$,
+      outside: $margin-geometry.outer.far$ + $margin-geometry.outer.width$ + $margin-geometry.outer.separation$,
+      top: $if(margin.top)$$margin.top$$else$1.25in$endif$,
+      bottom: $if(margin.bottom)$$margin.bottom$$else$1.25in$endif$,
+    ),
+  ),
+$endif$
 )
+
+$if(margin-geometry)$
+// Configure marginalia page geometry AFTER book.with()
+// IMPORTANT: This must come AFTER book.with() to override min-book's margin settings
+// and ensure marginalia state is visible inside the book content
+#import "@preview/marginalia:0.3.1" as marginalia
+
+#show: marginalia.setup.with(
+  inner: (
+    far: $margin-geometry.inner.far$,
+    width: $margin-geometry.inner.width$,
+    sep: $margin-geometry.inner.separation$,
+  ),
+  outer: (
+    far: $margin-geometry.outer.far$,
+    width: $margin-geometry.outer.width$,
+    sep: $margin-geometry.outer.separation$,
+  ),
+  top: $if(margin.top)$$margin.top$$else$1.25in$endif$,
+  bottom: $if(margin.bottom)$$margin.bottom$$else$1.25in$endif$,
+  book: true,
+  clearance: $margin-geometry.clearance$,
+)
+$endif$
 
 // Quarto uses custom figure kinds (quarto-float-fig, quarto-float-tbl, etc.)
 // which don't match min-book's built-in numbering (kind:image, kind:table, kind:raw).
