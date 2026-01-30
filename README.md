@@ -31,6 +31,10 @@ This would need help integrating Quarto's marginalia support with min-book's own
 - Quarto >= 1.9.18
 - The `min-book` Typst package (automatically imported and bundled with [typst-gather](https://prerelease.quarto.org/docs/advanced/typst/typst-gather.html))
 
+## Windows Users
+
+The test directories use symlinks to the `_extensions` folder. On Windows, you may need to enable Developer Mode or run `git config --global core.symlinks true` before cloning.
+
 ## License
 
 MIT
