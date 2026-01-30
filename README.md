@@ -15,6 +15,17 @@ project:
 format: min-book-typst
 ```
 
+## Known Issues
+
+The margin layout (using `reference-location: margin` and `citation-location: margin`) does not work well. Typst reports:
+
+```
+warning: layout did not converge within 5 attempts
+ = hint: check if any states or queries are updating themselves
+```
+
+This would need help integrating Quarto's marginalia support with min-book's own margin handling.
+
 ## Requirements
 
 - Quarto >= 1.9.18
