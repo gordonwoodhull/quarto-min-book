@@ -1,0 +1,446 @@
+---
+keep-typ: true
+_quarto:
+  render-project: true
+  tests:
+    min-book-typst:
+      ensureTypstFileRegexMatches:
+        - # matches array (first positional argument)
+          - "test book for Typst output format"
+          - "first chapter of the book"
+          - "second chapter of the book"
+          - "third chapter of the book"
+          # Min-book uses level 2 headings for preface (H2 = chapter level)
+          - "#heading\\(level: 2, numbering: none\\)\\[Preface\\]"
+          - "<fig-cars>"
+          - "<fig-visualization>"
+          - "<tbl-data>"
+          - "<sec-intro>"
+          - "<sec-methods>"
+          - "<sec-results>"
+          # Section labels
+          - "<sec-basic-figures>"
+          - "<sec-embedded-notebooks>"
+          - "<sec-callouts>"
+          - "<sec-custom-crossref-dinosaurs>"
+          - "<sec-equations>"
+          - "<sec-theorems>"
+          - "<sec-code-listings>"
+          - "<sec-tables>"
+          - "<sec-cross-references>"
+          - "<sec-sub-figures>"
+          - "<sec-more-callouts>"
+          - "<sec-more-dinosaurs>"
+          - "<sec-more-equations>"
+          - "<sec-more-theorems>"
+          - "<sec-more-code-listings>"
+          # Margin section labels
+          - "<sec-margin-figures>"
+          - "<sec-margin-captions>"
+          - "<sec-sidenotes>"
+          - "<sec-margin-equations>"
+          - "<sec-margin-listings>"
+          - "<sec-margin-tables>"
+          - "<sec-margin-caption-tables>"
+          - "<sec-margin-subfigures>"
+          - "<sec-margin-citations>"
+          - "<sec-margin-dinosaurs>"
+          # Margin figure labels
+          - "<fig-margin-orbital>"
+          - "<fig-margincap-epicycle>"
+          - "<fig-margin-panel>"
+          - "<fig-margin-panel-a>"
+          - "<fig-margin-panel-b>"
+          - "<fig-appendix-margin>"
+          - "<fig-appendix-b-margin>"
+          - "<fig-wide-observation>"
+          # Margin table labels
+          - "<tbl-margin-planets>"
+          - "<tbl-margincap-elements>"
+          - "<tbl-appendix-margin>"
+          - "<tbl-appendix-b-margin>"
+          # Margin equation labels
+          - "<eq-margin-gravity>"
+          - "<eq-appendix-margin-gauss>"
+          - "<eq-appendix-b-margin>"
+          # Margin listing labels
+          - "<lst-margin-kepler>"
+          - "<lst-appendix-margin>"
+          # Margin dinosaur labels
+          - "<dino-margin-ankylo>"
+          - "<dino-appendix-margin>"
+          - "<dino-appendix-b-margin>"
+          - "#ref\\(<fig-cars>, supplement: \\[Figure\\]\\)"
+          - "#ref\\(<fig-visualization>, supplement: \\[Figure\\]\\)"
+          - "#ref\\(<tbl-data>, supplement: \\[Table\\]\\)"
+          - "#ref\\(<sec-intro>, supplement: \\[Chapter\\]\\)"
+          - "#ref\\(<sec-methods>, supplement: \\[Chapter\\]\\)"
+          - "A plot of the cars dataset"
+          - "Sample data table"
+          - "#cite\\(<knuth84>"
+          - "#cite\\(<newton1687>"
+          - "#cite\\(<einstein1905>"
+          - "#cite\\(<turing1950>"
+          - "#cite\\(<dijkstra1968>"
+          - "#cite\\(<shannon1948>"
+          - '#bibliography\(\("references\.bib"\)\)'
+          # Min-book uses heading level 1 with outlined:true for parts
+          - '#heading\(level: 1, numbering: none, outlined: true\)\[Part I: Getting Started\]'
+          - '#heading\(level: 1, numbering: none, outlined: true\)\[Part II: Advanced Topics\]'
+          # Min-book uses appendices ambient (no params) + appendix-state
+          - '#show: appendices'
+          - '#appendix-state\.update\(true\)'
+          - "<sec-resources>"
+          - "#quarto_super\\("
+          - "<fig-panel>"
+          - "<fig-panel-a>"
+          - "<fig-panel-b>"
+          - "#ref\\(<fig-panel>, supplement: \\[Figure\\]\\)"
+          - "#ref\\(<fig-panel-a>, supplement: \\[Figure\\]\\)"
+          - "#callout\\("
+          - 'kind: "quarto-callout-Warning"'
+          - 'kind: "quarto-callout-Tip"'
+          - 'kind: "quarto-callout-Note"'
+          - 'kind: "quarto-callout-Important"'
+          - "<wrn-tea>"
+          - "<tip-towel>"
+          - "<nte-vogon>"
+          - "<imp-answer>"
+          - "#ref\\(<wrn-tea>, supplement: \\[Warning\\]\\)"
+          - "#ref\\(<tip-towel>, supplement: \\[Tip\\]\\)"
+          - "#ref\\(<nte-vogon>, supplement: \\[Note\\]\\)"
+          - "#ref\\(<imp-answer>, supplement: \\[Important\\]\\)"
+          - "<fig-appendix-panel>"
+          - "<fig-appendix-panel-a>"
+          - "<fig-appendix-panel-b>"
+          - "#ref\\(<fig-appendix-panel>, supplement: \\[Figure\\]\\)"
+          - "#ref\\(<fig-appendix-panel-a>, supplement: \\[Figure\\]\\)"
+          - "<wrn-appendix>"
+          - "<tip-appendix>"
+          - "#ref\\(<wrn-appendix>, supplement: \\[Warning\\]\\)"
+          - "#ref\\(<tip-appendix>, supplement: \\[Tip\\]\\)"
+          - 'kind: "quarto-float-dino"'
+          - "<dino-steg>"
+          - "<dino-trex>"
+          - "<dino-raptor>"
+          - "<dino-ptero>"
+          - "<dino-appendix>"
+          - "<dino-appendix-b>"
+          - "#ref\\(<dino-steg>, supplement: \\[Dinosaur\\]\\)"
+          - "#ref\\(<dino-raptor>, supplement: \\[Dinosaur\\]\\)"
+          - "#ref\\(<dino-appendix>, supplement: \\[Dinosaur\\]\\)"
+          - "#ref\\(<dino-appendix-b>, supplement: \\[Dinosaur\\]\\)"
+          - "<fig-appendix-b-panel>"
+          - "<fig-appendix-b-panel-a>"
+          - "<wrn-appendix-b>"
+          - "<tip-appendix-b>"
+          - "#ref\\(<fig-appendix-b-panel>, supplement: \\[Figure\\]\\)"
+          - "#ref\\(<wrn-appendix-b>, supplement: \\[Warning\\]\\)"
+          - 'counter\(figure\.where\(kind: "quarto-float-dino"\)\)\.update\(0\)'
+          - "<eq-einstein>"
+          - "<eq-newton>"
+          - "<eq-quadratic>"
+          - "<eq-pythagorean>"
+          - "#ref\\(<eq-einstein>, supplement: \\[Equation\\]\\)"
+          - "#ref\\(<eq-newton>, supplement: \\[Equation\\]\\)"
+          - "#ref\\(<eq-quadratic>, supplement: \\[Equation\\]\\)"
+          - "#ref\\(<eq-pythagorean>, supplement: \\[Equation\\]\\)"
+          - 'math\.equation\(block: true, numbering: equation-numbering'
+          - 'counter\(math\.equation\)\.update\(0\)'
+          # min-book uses theorion with clouds render for theorems
+          - "#import \"@preview/theorion:0\\.4\\.1\": make-frame, cosmos"
+          - "#import cosmos\\.clouds: render-fn as clouds-render"
+          - '#show: show-theorem'
+          - 'make-frame\(\s*"theorem"'
+          - 'clouds-render\.with\('
+          - "<thm-pythagorean>"
+          - "<lem-triangle>"
+          - "<thm-calculus>"
+          - "<def-continuous>"
+          - "<thm-appendix>"
+          - "#ref\\(<thm-pythagorean>"
+          - "#ref\\(<lem-triangle>"
+          - "#ref\\(<thm-calculus>"
+          - "#ref\\(<thm-appendix>"
+          - "<lst-hello>"
+          - "<lst-fibonacci>"
+          - "<lst-quicksort>"
+          - "<lst-appendix-example>"
+          - "#ref\\(<lst-hello>"
+          - "#ref\\(<lst-fibonacci>"
+          - "#ref\\(<lst-quicksort>"
+          - "#ref\\(<lst-appendix-example>"
+          - 'kind: "quarto-float-lst"'
+          # Min-book-specific import and show rules
+          - '#import "@preview/min-book:1\.3\.0": book, appendices'
+          - '#show: book\.with\('
+          # Margin references
+          - "#ref\\(<fig-margin-orbital>"
+          - "#ref\\(<tbl-margin-planets>"
+          - "#ref\\(<lst-margin-kepler>"
+          - "#ref\\(<eq-margin-gravity>"
+      ensurePdfRegexMatches:
+        - # Chapter 1 figure captions and references
+          - "Figure 1\\.1:[\\s\\S]*?cars"
+          - "Figure 1\\.2: Heliocircula"
+          - "Figure 1\\.3: Coperniciana"
+          - "Figure 1\\.4:[\\s\\S]*?line"
+          - "Kinematica[\\s\\S]*?Figure 1\\.1"
+          - "Parametrica[\\s\\S]*?Figure 1\\.4"
+          # Chapter 1 callouts
+          - "Warning 1\\.1: Whose Tea"
+          - "Beveragia[\\s\\S]*?Warning 1\\.1"
+          # Chapter 1 dinosaurs
+          - "Dinosaur 1\\.3:[\\s\\S]*?armored"
+          - "Dinosaur 1\\.2[\\s\\S]*?Dinosaur 1\\.1"
+          # Chapter 1 equations
+          - "Relativistica[\\s\\S]*?Equation \\(1\\.1\\)"
+          - "Dynamica[\\s\\S]*?Equation \\(1\\.2\\)"
+          # Chapter 1 theorems
+          - "Theorem 1\\.1[\\s\\S]*?Pythagorean"
+          - "Lemma 1\\.1[\\s\\S]*?Triangle"
+          - "Geometrica[\\s\\S]*?Theorem 1\\.1"
+          - "Boundaria[\\s\\S]*?Lemma 1\\.1"
+          # Chapter 1 listings
+          - "Listing 1\\.3:[\\s\\S]*?Orbitsolva"
+          - "grammata[\\s\\S]*?Listing 1\\.1"
+          - "Recursiva[\\s\\S]*?Listing 1\\.2"
+          - "Iterativa[\\s\\S]*?Listing 1\\.3"
+          # Chapter 1 citations
+          - "Structurata"
+          # Chapter 2 tables
+          - "Table 2\\.1:[\\s\\S]*?Sample[\\s\\S]*?data"
+          - "Table 2\\.2: Orbitperioda"
+          - "Table 2\\.3: Elementica"
+          - "Informatica"
+          - "Celestia[\\s\\S]*?Table 2\\.2"
+          - "Absorptia[\\s\\S]*?Table 2\\.3"
+          # Chapter 2 figures
+          - "Figure 2\\.1:[\\s\\S]*?panel"
+          - "Figure 2\\.2:[\\s\\S]*?Wavelengthra"
+          - "Compositia[\\s\\S]*?Figure 2\\.1"
+          - "Figure 2\\.1a[\\s\\S]*?Figure 2\\.1b"
+          # Chapter 2 callouts
+          - "Tip 2\\.1: Whose Towel"
+          - "Fabricata[\\s\\S]*?Tip 2\\.1"
+          - "Poetica[\\s\\S]*?Note 2\\.1"
+          # Chapter 2 dinosaurs
+          - "Dinosaur 2\\.1[\\s\\S]*?pack"
+          # Chapter 2 equations and theorems
+          - "Algebraica[\\s\\S]*?Equation \\(2\\.1\\)"
+          - "Integrala[\\s\\S]*?Theorem 2\\.1"
+          # Chapter 2 listings
+          - "Listing 2\\.1:[\\s\\S]*?Quicksort"
+          - "Sortiva[\\s\\S]*?Listing 2\\.1"
+          # Chapter 3 callouts
+          - "Important 3\\.1: The Answer"
+          # Note: Long words may be hyphenated in narrow margin, use shorter unique text
+          - "ultimate question"
+          - "response documented"
+          # Chapter 3 dinosaurs
+          - "Dinosaur 3\\.1[\\s\\S]*?aerodynamic"
+          # Appendix A figures
+          - "Figure A\\.1:[\\s\\S]*?Appendorba"
+          - "Figure A\\.2:[\\s\\S]*?panel"
+          # Note: "Figure" may be hyphenated as "Fig-ure" in narrow margins
+          - "Additiva[\\s\\S]*?ure A\\.1"
+          - "Compositia[\\s\\S]*?Figure A\\.2"
+          - "Figure A\\.2a"
+          - "Figure A\\.2b"
+          # Appendix A tables
+          - "Table A\\.1:[\\s\\S]*?Constantia"
+          # Appendix A callouts
+          - "Tip A\\.1: Appendix Tip"
+          - "monitoria[\\s\\S]*?Warning A\\.1"
+          - "soria[\\s\\S]*?Tip A\\.1"
+          # Appendix A dinosaurs
+          - "Dinosaur A\\.2:[\\s\\S]*?long-necked"
+          - "Fossilica[\\s\\S]*?Dinosaur A\\.1"
+          # Appendix A citations
+          - "Computationa"
+          # Appendix A equations
+          # Appendix A theorems and listings
+          - "Theorem A\\.1"
+          # Note: "Theorem" may be hyphenated as "Theo-rem" in narrow margins
+          - "Demonstrata[\\s\\S]*?rem A\\.1"
+          - "Listing A\\.2:[\\s\\S]*?Auxiliara"
+          # Note: "Listing" may be hyphenated as "List-ing" in narrow margins
+          - "Exemplara[\\s\\S]*?ing A\\.1"
+          - "Helpera[\\s\\S]*?ing A\\.2"
+          # Appendix B figures
+          - "Figure B\\.1:[\\s\\S]*?Databvisual"
+          - "Figure B\\.2:[\\s\\S]*?panel"
+          - "Graphica[\\s\\S]*?Figure B\\.1"
+          - "Secundaria[\\s\\S]*?Figure B\\.2"
+          - "Figure B\\.2a"
+          # Appendix B tables
+          - "Table B\\.1:[\\s\\S]*?Unitaria"
+          - "Dimensiona[\\s\\S]*?Table B\\.1"
+          # Appendix B callouts
+          - "Tip B\\.1: Appendix B Tip"
+          - "Monitoria[\\s\\S]*?Warning B\\.1"
+          - "Advisoria[\\s\\S]*?Tip B\\.1"
+          # Appendix B dinosaurs
+          - "Dinosaur B\\.2:[\\s\\S]*?crested"
+          - "Brachiosaura[\\s\\S]*?Dinosaur B\\.1"
+          # Appendix B equations
+          # Unique margin content anchors
+          - "Heliocircula"
+          - "Coperniciana"
+          # Note: "Telescopia" may be hyphenated as "Tele-scopia" in narrow margins
+          - "scopia"
+          - "Gravitolex"
+          - "Orbitsolva"
+          - "Orbitperioda"
+          - "Elementica"
+          - "Waveluma"
+          - "Appendorba"
+          - "Constantia"
+          - "Databvisual"
+          - "Unitaria"
+          - "Ankylosaura"
+          - "Diplodoca"
+          - "Parasaura"
+          - "Longneckia"
+          # Unique body anchors
+          - "Heliovis"
+          - "Galileana"
+          - "Gravitonia"
+          - "Orbitcode"
+          - "Periodicus"
+          - "Spectralis"
+          - "Chromatus"
+          - "Appendixia"
+          - "Tabulata"
+          - "Secondaria"
+          - "Metrica"
+          # Chapter 2 extended margin anchors
+          - "Formulix"
+          - "Quadratica"
+          - "Algorithmix"
+          - "Quicksortix"
+          # Chapter 2 citation anchors
+          - "Newtoniana"
+          - "Bibliographica"
+          # Chapter 3 citation anchors
+          - "Algorithmia"
+          # Margin theorem anchors
+          - "Inequalitas"
+          - "Triangulata"
+          - "Boundaria"
+          - "Limitica"
+          - "Continua"
+          - "Epsilondelta"
+          # Margin callout anchors (literary/classical)
+          - "Apothegma"
+          - "Catharsis"
+          - "Prolegomena"
+          - "Hermeneutica"
+          - "Scholiasta"
+          - "Philologica"
+          - "Peripeteia"
+          - "Anagnorisis"
+          - "Gnomicon"
+          - "Exegesis"
+      ensurePdfTextPositions:
+        - # Code listings should be left-aligned with body text, not centered.
+          - subject: { text: "Alignmark", granularity: "Div" }
+            relation: leftAligned
+            object: { text: "Structurata", granularity: "P" }
+            tolerance: 15
+          # Chapter 1 margin content
+          # Note: Heliocircula/Heliovis, Inequalitas/Triangulata removed - on different pages
+          - subject: "Gravitolex"
+            relation: leftOf
+            object: "Gravitonia"
+            page: 10  # verso page - margin on left
+          - subject: "Orbitsolva"
+            relation: leftOf
+            object: "Orbitcode"
+            page: 12  # verso page - margin on left
+          # Chapter 2 margin content
+          - subject: "Orbitperioda"
+            relation: rightOf
+            object: "Periodicus"
+            page: 17  # recto page - margin on right
+          - subject: "Waveluma"
+            relation: leftOf
+            object: "Chromatus"
+            page: 18  # verso page - margin on left
+          # Chapter 2 margin definition (page 21 - recto, right margin)
+          - subject: "Limitica"
+            relation: rightOf
+            object: "Continua"
+            page: 21
+          # Chapter 2 margin equation (page 20 - verso, left margin)
+          - subject: "Quadratica"
+            relation: leftOf
+            object: "Formulix"
+            page: 20
+          # Chapter 2 margin listing (page 21 - recto, right margin)
+          - subject: "Quicksortix"
+            relation: rightOf
+            object: "Algorithmix"
+            page: 21
+          # Note: Appendorba/Appendixia removed - on different pages
+          # Appendix B margin content (page 35 - recto, right margin)
+          - subject: "Databvisual"
+            relation: rightOf
+            object: "Secondaria"
+            page: 35
+          # Margin callout position tests
+          - subject: "Apothegma"
+            relation: leftOf
+            object: "Catharsis"
+            page: 8  # verso page - margin on left
+          - subject: "Prolegomena"
+            relation: rightOf
+            object: "Hermeneutica"
+            page: 19  # recto page - margin on right
+          - subject: "Scholiasta"
+            relation: leftOf
+            object: "Philologica"
+            page: 20  # verso page - margin on left
+          - subject: "Peripeteia"
+            relation: leftOf
+            object: "Anagnorisis"
+            page: 24  # verso page - margin on left
+          - subject: "Gnomicon"
+            relation: rightOf
+            object: "Exegesis"
+            page: 37  # recto page - margin on right
+          # Sidenotes position tests (page 6 - verso, left margin)
+          # With min-book 1.4.0 fix, marginalia state is preserved and sidenotes go to correct margin
+          - subject: "scopia"
+            relation: leftOf
+            object: "Galileana"
+            page: 6
+          # Margin caption position tests
+          - subject: "Coperniciana"
+            relation: leftOf
+            object: "Epicycloid"
+            page: 6  # verso page - margin on left
+          # Note: Elementica/Spectralis removed - on different pages in min-book layout
+          # Margin dinosaur position tests
+          - subject: "Ankylosaura"
+            relation: rightOf
+            object: "Thyreophora"
+            page: 9  # recto page - margin on right
+          - subject: "Diplodoca"
+            relation: leftOf
+            object: "Longneckia"
+            page: 32  # verso page - margin on left
+          - subject: "Parasaura"
+            relation: rightOf
+            object: "Hadrosaura"
+            page: 37  # recto page - margin on right
+---
+
+# Preface {.unnumbered}
+
+This is a test book for Typst output format.
+
+## About this book
+
+This book tests the basic Typst book rendering functionality in Quarto, with margin layout features enabled.
+See @knuth84 for additional discussion of literate programming.
