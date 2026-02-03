@@ -2,7 +2,17 @@
 
 This is a proof-of-concept implementation of a Quarto format extension implementing a Quarto book project using the Typst [min-book](https://typst.app/universe/package/min-book/) book template.
 
-I don't intend to maintain this, so I am archiving it. If you fork this and want to be listed as a maintained fork, [contact me](mailto:gordon.woodhull@posit.co).
+I don't intend to maintain this, so I am archiving it.
+
+If you fork this, please share your maintained version:
+- Submit to the [official Quarto extensions listing](https://github.com/quarto-dev/quarto-web/tree/main/docs/extensions/listings)
+- Add it to [awesome-quarto](https://github.com/mcanouil/awesome-quarto/issues/new?assignees=mcanouil&labels=&template=suggestion.yml)
+
+## Installation
+
+```bash
+quarto add gordonwoodhull/quarto-min-book
+```
 
 ## Usage
 
